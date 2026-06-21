@@ -8,7 +8,20 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
     The game page appeared the way I would assume it should. However, when I began to test some input, things were clearly not implemented the way they should've been. For example, I couldn't figure out the pattern for my score as it was fluctuating each iteration.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
-    The hints were reversed, the new game button didn't work, and I could enter numbers < 0 or > 100 (the last one isn't really a bug, but more so a functionality thing) However, I feel the other 2 are bugs.
+    The hints were reversed, the new game button didn't work, the difficulty wouldn't properly adjust, and I could enter numbers < 0 or > 100 (the last one isn't really a bug, but more so a functionality thing) However, I feel the other 2 are bugs. 
+    
+    (These bugs were found way later):
+    Line 36 — update_score win formula off-by-one
+    100 - 10 * (attempt_number + 1) should be 100 - 10 * attempt_number. On attempt 1 you score 80 instead of 90.
+
+    Lines 41–44 — asymmetric scoring bug
+    "Too High" gives +5 on even attempts, −5 on odd. "Too Low" always gives −5. There's no reason "Too High" should ever reward points — both should penalize equally.
+
+    Line 120 — new game ignores difficulty range
+    random.randint(1, 100) hardcodes Easy/Hard range instead of using get_range_for_difficulty(difficulty).
+
+    Line 94 — hint text hardcoded
+    "Guess a number between 1 and 100." ignores the actual low/high from the selected difficulty.
 
 **Bug Reproduction Log**
 
