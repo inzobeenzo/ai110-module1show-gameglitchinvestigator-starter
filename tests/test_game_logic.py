@@ -1,16 +1,39 @@
 from logic_utils import check_guess
 
+
 def test_winning_guess():
-    # If the secret is 50 and guess is 50, it should be a win
-    result = check_guess(50, 50)
-    assert result == "Win"
+    outcome, message = check_guess(50, 50)
+    assert outcome == "Win"
+    assert "Correct" in message
 
-def test_guess_too_high():
-    # If secret is 50 and guess is 60, hint should be "Too High"
-    result = check_guess(60, 50)
-    assert result == "Too High"
 
-def test_guess_too_low():
-    # If secret is 50 and guess is 40, hint should be "Too Low"
-    result = check_guess(40, 50)
-    assert result == "Too Low"
+def test_guess_too_high_outcome():
+    outcome, message = check_guess(60, 50)
+    assert outcome == "Too High"
+
+
+def test_guess_too_high_says_lower():
+    # When guess > secret, hint must tell the player to go LOWER
+    _, message = check_guess(60, 50)
+    assert "LOWER" in message
+
+
+def test_guess_too_low_outcome():
+    outcome, message = check_guess(40, 50)
+    assert outcome == "Too Low"
+
+
+def test_guess_too_low_says_higher():
+    # When guess < secret, hint must tell the player to go HIGHER
+    _, message = check_guess(40, 50)
+    assert "HIGHER" in message
+
+
+def test_one_below_secret_says_higher():
+    _, message = check_guess(49, 50)
+    assert "HIGHER" in message
+
+
+def test_one_above_secret_says_lower():
+    _, message = check_guess(51, 50)
+    assert "LOWER" in message

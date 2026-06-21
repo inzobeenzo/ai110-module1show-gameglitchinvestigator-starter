@@ -25,19 +25,19 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [The purpose of the game is to guess a randomly generated number through hints of whether the inputted number is higher or lower than the actual number.] Describe the game's purpose.
+- [I doubt I found every bug, but the main ones included: reversed hints, the new game button not working, incorrect score tracking, and the failed difficulty change.] Detail which bugs you found.
+- [Firstly, the logic of the hints was fixed. Within that same function, there was some strange casting happening when the data should've only been ints so that was sorted. Also, the difficulty was corrected as the hard difficulty was actually easier than the normal one as the range was much smaller. For the new game button, you can just click refresh haha.] Explain what fixes you applied.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 40
+2. Game returns "Go HIGHER"
+3. User enters a guess of 99 → "Go LOWER!"
+4. Score updates correctly after each guess
+5. Game ends after the correct guess
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
