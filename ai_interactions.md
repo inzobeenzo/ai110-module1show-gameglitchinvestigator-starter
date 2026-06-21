@@ -28,9 +28,9 @@
 
 | Edge Case | Prompt Used | AI-Suggested Test | Did It Pass? | Your Reasoning |
 |-----------|-------------|-------------------|--------------|----------------|
-| | | | | |
-| | | | | |
-| | | | | |
+|Decimals|"I want to ensure the logic of the game holds for extreme cases. i've already tested negative numbers. i want to see if decimal numbers work. if you can create other edge cases that may have been overlooked do so. generate a suite of pytest cases that verify your game handles these inputs gracefully." | test_decimal_truncates_down(), test_decimal_exactly_half(), test_decimal_close_to_boundary(), test_decimal_negative()|Yes |Although this is mostly on the user to follow the rules of the game, these situations should still be handled properly (eg. rounded properly, correct hint given, etc.)|
+|invalid inputs |same|section in test_game_logic.py: # parse_guess — invalid / malformed inputs |Yes |Similar reasoning as before, but a little more broad as there may be a misinput or an input that is handled improperly based on its data type.|
+|Extreme inputs (very large/small)|same|section in test_game_logic.py: # parse_guess — boundary and extreme integers |Yes |Same reasoning as decimals as you would hope the user follows the rules of the game, but just in case they don't, that situation is handled properly.|
 
 ---
 
