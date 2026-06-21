@@ -29,9 +29,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-    1         Go HIGHER!        Go LOWER!               None
-   -1     Only numbers 1-100    Go LOWER!               None
-  Hard      Range: 1-200          1-50                  None
+|1|Go HIGHER!|Go LOWER!|None|
+|-1|Only numbers 1-100|Go LOWER!|None|
+|Hard|Range: 1-200|1-50|None|
 
 ---
 
