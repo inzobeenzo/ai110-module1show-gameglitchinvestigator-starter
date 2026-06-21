@@ -218,13 +218,13 @@ def test_check_guess_both_negative_too_high():
 # ---------------------------------------------------------------------------
 
 def test_score_win_first_attempt():
-    # attempt_number=1 → points = 100 - 10*(1+1) = 80
+    # attempt_number=1 → points = 100 - 10*1 = 90
     score = update_score(0, "Win", 1)
-    assert score == 80
+    assert score == 90
 
 
 def test_score_win_late_attempt_clamped_to_10():
-    # attempt_number=10 → 100 - 110 = -10 → clamped to 10
+    # attempt_number=10 → 100 - 100 = 0 → clamped to 10
     score = update_score(0, "Win", 10)
     assert score == 10
 
@@ -245,10 +245,10 @@ def test_score_too_low_same_on_any_attempt():
         assert score == 95
 
 
-def test_score_too_high_even_attempt_adds_5():
-    # On even attempts "Too High" incorrectly adds +5 (asymmetry bug)
+def test_score_too_high_subtracts_5():
+    # Fixed: "Too High" now consistently subtracts 5 regardless of attempt parity
     score = update_score(50, "Too High", 2)
-    assert score == 55
+    assert score == 45
 
 
 def test_score_too_high_odd_attempt_subtracts_5():

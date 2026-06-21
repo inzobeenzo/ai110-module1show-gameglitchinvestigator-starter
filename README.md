@@ -44,8 +44,8 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 ## 🧪 Test Results
 
 ```
-tests\test_game_logic.py ......................................... [100%]
-=============================================================================== 43 passed in 2.18s 
+tests\test_game_logic py ...........................................[100%]
+=============================================================================== 43 passed in 3.27s
 ```
 
 =======
